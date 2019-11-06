@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>tracker</ion-title>
+    <ion-icon name="home" slot="end"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form id="trackerForm">
+    <ion-list>
+      <ion-list-header>
+        Track a task
+      </ion-list-header>
+      <ion-item>
+        <ion-input name="taskName" placeholder="Enter name of task" type="text"></ion-input>
+      </ion-item>
+      <ion-button expand="full" color="tertiary" *ngIf="!started" (click)="start()">Start</ion-button>
+      <ion-button expand="full" color="secondary" *ngIf="started" (click)="stop()">Stop</ion-button>
+    </ion-list>
+  </form>
+</ion-content>
