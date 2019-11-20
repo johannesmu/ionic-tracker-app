@@ -21,4 +21,11 @@ export class HistoryPage implements OnInit {
     this.historySub = this.dataService.list$.subscribe( taskData => this.history = taskData );
   }
 
+  duration(stop,start) {
+    return ((stop - start) / 1000).toFixed(2);
+  }
+
+  delete( itemStart ) {
+    this.dataService.deleteFromList( itemStart );
+  }
 }

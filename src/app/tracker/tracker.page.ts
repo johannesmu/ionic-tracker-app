@@ -35,7 +35,7 @@ export class TrackerPage implements OnInit {
     this.startTime = new Date().getTime();
     const tm = timer(0,1000);
     this.timerSub = tm.subscribe( val => this.time = val );
-    console.log( this.startTime );
+    // console.log( this.startTime );
   }
 
   stop() {
@@ -43,7 +43,8 @@ export class TrackerPage implements OnInit {
     this.stopTime = new Date().getTime();
     this.timerSub.unsubscribe();
     this.save();
-    console.log( this.stopTime );
+    this.taskForm.reset();
+    // console.log( this.stopTime );
   }
 
   save() {
