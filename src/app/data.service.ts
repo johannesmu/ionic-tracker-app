@@ -31,6 +31,7 @@ export class DataService {
         this.taskList.splice( index, 1 );
       }
     });
+    this.saveData();
     this.list$.next( this.taskList );
   }
 

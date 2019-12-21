@@ -7,7 +7,8 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   { path: 'tracker', loadChildren: './tracker/tracker.module#TrackerPageModule' },
-  { path: 'history', loadChildren: './history/history.module#HistoryPageModule' }
+  { path: 'history', loadChildren: './history/history.module#HistoryPageModule' },  { path: 'categories', loadChildren: './categories/categories.module#CategoriesPageModule' }
+
 ];
 @NgModule({
   imports: [

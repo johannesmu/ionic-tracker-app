@@ -26,7 +26,8 @@ export class TrackerPage implements OnInit {
 
   ngOnInit() {
     this.taskForm = this.formBuilder.group({
-     name: ['', [Validators.required, Validators.minLength(3) ] ] 
+     name: ['', [Validators.required, Validators.minLength(3) ] ],
+     category: ['', [Validators.required] ]
     });
   }
 
@@ -50,6 +51,7 @@ export class TrackerPage implements OnInit {
   save() {
     let task:Task = {
       name: this.taskForm.get('name').value,
+      category: this.taskForm.get('category').value,
       start: this.startTime,
       stop: this.stopTime
     }

@@ -1,7 +1,6 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>tracker</ion-title>
-    <ion-icon name="home" slot="end"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
@@ -14,6 +13,13 @@
       <ion-item>
         <ion-input name="taskName" placeholder="Enter name of task" type="text" formControlName="name">
         </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Category</ion-label>
+        <ion-select placeholder="select a category" formControlName="category">
+          <ion-select-option value="test">Test</ion-select-option>
+          <ion-select-option value="something else">Something Else</ion-select-option>
+        </ion-select>
       </ion-item>
       <ion-button expand="full" color="tertiary" *ngIf="!started" (click)="start()" [disabled]="!taskForm.valid">Start</ion-button>
       <ion-button expand="full" color="secondary" *ngIf="started" (click)="stop()">Stop</ion-button>

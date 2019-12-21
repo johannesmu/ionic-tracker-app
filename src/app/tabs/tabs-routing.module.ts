@@ -18,13 +18,22 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'categories',
+        children: [
+          {
+            path: '',
+            loadChildren: () => 
+              import('../categories/categories.module').then( m => m.CategoriesPageModule)
+          }
+        ]
+      },
+      {
         path: 'history',
         children: [
           {
             path: '',
             loadChildren: () => 
               import('../history/history.module').then( m => m.HistoryPageModule)
-            
           }
         ]
       },
