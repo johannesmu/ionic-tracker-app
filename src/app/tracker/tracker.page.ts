@@ -4,6 +4,7 @@ import { timer, Subscription } from 'rxjs';
 
 import { DataService } from '../data.service';
 import { Task } from '../models/task.inteface';
+import { Category } from '../models/category.class';
 
 @Component({
   selector: 'app-tracker',
@@ -19,6 +20,9 @@ export class TrackerPage implements OnInit {
   timerSub:Subscription;
   time:number;
 
+  categoriesSub:Subscription;
+  categories:Array<Category> = new Array();
+
   constructor(
     private formBuilder:FormBuilder,
     private dataService:DataService
@@ -29,6 +33,10 @@ export class TrackerPage implements OnInit {
      name: ['', [Validators.required, Validators.minLength(3) ] ],
      category: ['', [Validators.required] ]
     });
+
+    this.categoriesSub = this.dataService.categories$.subscribe( (categoriesData) => {
+      this.categories = categoriesData;
+    })
   }
 
   start() {

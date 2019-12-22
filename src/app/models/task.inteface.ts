@@ -1,4 +1,4 @@
-import { Category } from '../models/category.interface';
+import { Category } from './category.class';
 export interface Task {
     name: string;
     start: number;

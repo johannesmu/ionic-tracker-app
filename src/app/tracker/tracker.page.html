@@ -17,8 +17,7 @@
       <ion-item>
         <ion-label position="stacked">Category</ion-label>
         <ion-select placeholder="select a category" formControlName="category">
-          <ion-select-option value="test">Test</ion-select-option>
-          <ion-select-option value="something else">Something Else</ion-select-option>
+          <ion-select-option *ngFor="let category of categories" value="{{category.name}}">{{category.name}}</ion-select-option>
         </ion-select>
       </ion-item>
       <ion-button expand="full" color="tertiary" *ngIf="!started" (click)="start()" [disabled]="!taskForm.valid">Start</ion-button>
