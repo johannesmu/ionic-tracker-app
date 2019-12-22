@@ -24,7 +24,7 @@
       <ion-button expand="full" color="secondary" *ngIf="started" (click)="stop()">Stop</ion-button>
 
       <ion-item *ngIf="started">
-        {{time}} seconds
+        {{time | timeformat }}
       </ion-item>
     </ion-list>
   </form>

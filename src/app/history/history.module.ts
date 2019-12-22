@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { HistoryPage } from './history.page';
+import { TimeModule } from '../time/time.module';
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    TimeModule,
     RouterModule.forChild(routes)
   ],
   declarations: [HistoryPage]
