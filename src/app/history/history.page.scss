@@ -1,0 +1,18 @@
+ion-badge {
+  border-radius: 0;
+}
+
+ion-col.button-col {
+  display: flex;
+  align-items: center;
+}
+
+ion-label.small {
+  font-size: 0.8em;
+  color: var(--ion-color-medium);
+}
+
+ion-label.title {
+  text-transform: capitalize;
+  font-weight: 300;
+}
