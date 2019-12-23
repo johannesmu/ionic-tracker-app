@@ -23,6 +23,11 @@ export class TrackerPage implements OnInit {
   categoriesSub:Subscription;
   categories:Array<Category> = new Array();
 
+  tasksSub:Subscription;
+  tasks:Array<Task> = new Array();
+
+  totalTime = new Array();
+
   constructor(
     private formBuilder:FormBuilder,
     private dataService:DataService
@@ -34,9 +39,15 @@ export class TrackerPage implements OnInit {
      category: ['', [Validators.required] ]
     });
 
+    this.tasksSub = this.dataService.list$.subscribe( (tasksData) => {
+      this.tasks = tasksData;
+    })
+
     this.categoriesSub = this.dataService.categories$.subscribe( (categoriesData) => {
       this.categories = categoriesData;
     })
+
+    this.calculateTotalTime();
   }
 
   start() {
@@ -44,7 +55,6 @@ export class TrackerPage implements OnInit {
     this.startTime = new Date().getTime();
     const tm = timer(0,1000);
     this.timerSub = tm.subscribe( val => this.time = val );
-    // console.log( this.startTime );
   }
 
   stop() {
@@ -53,7 +63,6 @@ export class TrackerPage implements OnInit {
     this.timerSub.unsubscribe();
     this.save();
     this.taskForm.reset();
-    // console.log( this.stopTime );
   }
 
   save() {
@@ -64,5 +73,14 @@ export class TrackerPage implements OnInit {
       stop: this.stopTime
     }
     this.dataService.addToList( task );    
+  }
+
+  calculateTotalTime() {
+    let totalTime = new Array();
+    
+    this.categories.forEach( (category) => {
+      // check for each items in the category and total the time spent
+    })
+    
   }
 }

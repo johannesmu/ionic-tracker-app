@@ -28,4 +28,9 @@
       </ion-item>
     </ion-list>
   </form>
+  <ion-list>
+    <ion-item *ngFor="let time of totalTime">
+      <ion-label>{{time.category}}</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
